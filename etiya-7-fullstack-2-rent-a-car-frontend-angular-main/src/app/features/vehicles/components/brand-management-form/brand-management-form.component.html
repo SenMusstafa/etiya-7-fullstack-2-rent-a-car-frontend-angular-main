@@ -1,0 +1,29 @@
+<form *ngIf="brandForm" [formGroup]="brandForm" (submit)="onFormSubmitted()">
+  <div class="form-group mb-3">
+    <label for="brandName">Brand Name</label>
+    <input
+      type="text"
+      formControlName="name"
+      id="brandName"
+      class="form-control"
+      placeholder="Enter brand name"
+    />
+  </div>
+
+  <!-- <div class="form-group">
+    <label for="brandDescription">Brand Description</label>
+    <textarea formControlName="description" class="form-control" id="brandDescription" rows="3"></textarea>
+  </div> -->
+
+  <button type="submit" class="btn btn-primary me-2">
+    {{ isEditMode ? "Update" : "Add" }}
+  </button>
+  <button
+    *ngIf="isEditMode"
+    type="button"
+    (click)="onDeleteClicked()"
+    class="btn btn-danger"
+  >
+    Delete
+  </button>
+</form>
